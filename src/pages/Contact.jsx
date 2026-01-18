@@ -2,7 +2,6 @@ import { motion } from 'framer-motion'
 import { FaLinkedin, FaTwitter, FaInstagram } from 'react-icons/fa'
 import { HiMail, HiLocationMarker } from 'react-icons/hi'
 import AnimatedSection from '../components/common/AnimatedSection'
-import GradientText from '../components/common/GradientText'
 import { EXTERNAL_LINKS } from '../utils/externalLinks'
 
 const Contact = () => {
@@ -27,18 +26,26 @@ const Contact = () => {
   return (
     <>
       {/* Hero */}
-      <section className="section bg-cream pt-32">
-        <div className="container mx-auto px-6">
+      <section className="hero-gradient min-h-[60vh] flex items-center pt-24 pb-16 md:pt-32 md:pb-24">
+        <div className="container mx-auto px-6 sm:px-8">
           <motion.div
             className="max-w-3xl mx-auto text-center"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-hero font-extrabold mb-8">
-              <GradientText>Get in Touch</GradientText>
+            <motion.span
+              className="inline-block text-purple font-semibold tracking-widest uppercase text-sm mb-4"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+            >
+              Contact Us
+            </motion.span>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-slate-800 mb-8">
+              Get in Touch
             </h1>
-            <p className="text-xl text-[#4a4a4a] leading-relaxed">
+            <p className="text-lg md:text-xl text-slate-600 leading-relaxed max-w-2xl mx-auto">
               Have questions about Youth Tech Net or want to learn more about getting involved?
               We'd love to hear from you.
             </p>
@@ -47,20 +54,23 @@ const Contact = () => {
       </section>
 
       {/* Contact Info */}
-      <section className="section bg-white">
-        <div className="container mx-auto px-6">
-          <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+      <section className="py-20 md:py-28 bg-white">
+        <div className="container mx-auto px-6 sm:px-8">
+          <div className="grid md:grid-cols-2 gap-12 lg:gap-16 max-w-4xl mx-auto">
             {/* Contact Details */}
             <AnimatedSection>
-              <h2 className="text-2xl font-bold text-[#1a1a1a] mb-8">Contact Information</h2>
+              <span className="inline-block text-purple font-semibold tracking-widest uppercase text-xs mb-4">
+                Contact
+              </span>
+              <h2 className="text-2xl md:text-3xl font-bold text-slate-800 mb-10">Contact Information</h2>
 
               <div className="space-y-8">
                 <div className="flex items-start gap-6">
-                  <div className="w-12 h-12 bg-purple/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <HiMail className="w-6 h-6 text-purple" />
+                  <div className="w-14 h-14 bg-purple/10 rounded-2xl flex items-center justify-center flex-shrink-0">
+                    <HiMail className="w-7 h-7 text-purple" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-[#1a1a1a] mb-1">Email</h3>
+                    <h3 className="font-semibold text-slate-800 mb-2">Email</h3>
                     <a
                       href={`mailto:${EXTERNAL_LINKS.social.email}`}
                       className="text-purple hover:text-purple-dark transition-colors"
@@ -71,13 +81,13 @@ const Contact = () => {
                 </div>
 
                 <div className="flex items-start gap-6">
-                  <div className="w-12 h-12 bg-orange/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <HiLocationMarker className="w-6 h-6 text-orange" />
+                  <div className="w-14 h-14 bg-orange/10 rounded-2xl flex items-center justify-center flex-shrink-0">
+                    <HiLocationMarker className="w-7 h-7 text-orange" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-[#1a1a1a] mb-1">Location</h3>
-                    <p className="text-[#4a4a4a]">Australia-wide network</p>
-                    <p className="text-[#6b6b6b] text-sm">Operating across university campuses</p>
+                    <h3 className="font-semibold text-slate-800 mb-2">Location</h3>
+                    <p className="text-slate-600">Australia-wide network</p>
+                    <p className="text-slate-500 text-sm">Operating across university campuses</p>
                   </div>
                 </div>
               </div>
@@ -85,25 +95,28 @@ const Contact = () => {
 
             {/* Social Links */}
             <AnimatedSection delay={0.1}>
-              <h2 className="text-2xl font-bold text-[#1a1a1a] mb-8">Connect With Us</h2>
+              <span className="inline-block text-purple font-semibold tracking-widest uppercase text-xs mb-4">
+                Social
+              </span>
+              <h2 className="text-2xl md:text-3xl font-bold text-slate-800 mb-10">Connect With Us</h2>
 
               <div className="space-y-6">
                 {socialLinks.map((social) => {
                   const Icon = social.icon
                   return (
                     <a
-                        key={social.name}
-                        href={social.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-6 p-5 rounded-xl bg-cream hover:bg-cream-dark transition-colors group"
-                      >
-                      <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-sm group-hover:shadow-md transition-shadow">
-                        <Icon className="w-6 h-6 text-purple" />
+                      key={social.name}
+                      href={social.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-6 p-6 rounded-2xl bg-slate-50 hover:bg-slate-100 transition-colors group"
+                    >
+                      <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center shadow-sm group-hover:shadow-md transition-shadow">
+                        <Icon className="w-7 h-7 text-purple" />
                       </div>
                       <div>
-                        <h3 className="font-semibold text-[#1a1a1a]">{social.name}</h3>
-                        <p className="text-[#6b6b6b] text-sm">Follow us for updates</p>
+                        <h3 className="font-semibold text-slate-800">{social.name}</h3>
+                        <p className="text-slate-500 text-sm">Follow us for updates</p>
                       </div>
                     </a>
                   )

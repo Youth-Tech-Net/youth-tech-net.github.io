@@ -5,21 +5,21 @@ import { HiPlus } from 'react-icons/hi'
 const PlaceholderCard = ({ delay = 0 }) => {
   return (
     <motion.div
-      className="border-2 border-dashed border-purple/30 rounded-2xl p-10 text-center hover:border-purple/60 hover:-translate-y-1 transition-all duration-300"
+      className="border-2 border-dashed border-purple/30 rounded-3xl p-10 md:p-12 text-center hover:border-purple/60 hover:-translate-y-1 transition-all duration-300"
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay }}
     >
       {/* Icon */}
-      <div className="w-36 h-36 mx-auto mb-8 rounded-full bg-purple/10 flex items-center justify-center">
-        <HiPlus className="text-purple/50 w-14 h-14" />
+      <div className="w-40 h-40 mx-auto mb-10 rounded-full bg-purple/10 flex items-center justify-center">
+        <HiPlus className="text-purple/50 w-16 h-16" />
       </div>
 
-      <h3 className="text-xl font-bold text-[#1a1a1a] mb-4">
+      <h3 className="text-2xl font-bold text-slate-800 mb-5">
         This could be you!
       </h3>
-      <p className="text-[#4a4a4a] mb-6 leading-relaxed">
+      <p className="text-slate-600 mb-8 leading-relaxed">
         Join our growing team and help shape the future of technology.
       </p>
 

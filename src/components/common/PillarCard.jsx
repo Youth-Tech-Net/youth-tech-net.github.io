@@ -42,17 +42,17 @@ const PillarCard = ({
 
   return (
     <motion.div
-      className={`${color.bg} ${color.hover} rounded-2xl p-10 pl-14 border-l-4 ${color.border} transition-all duration-300 hover:-translate-y-1 hover:shadow-lg`}
+      className={`${color.bg} ${color.hover} rounded-3xl p-10 md:p-12 border-l-4 ${color.border} transition-all duration-300 hover:-translate-y-1 hover:shadow-lg`}
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay }}
     >
-      <div className={`${color.icon} mb-6`}>
-        <Icon size={44} />
+      <div className={`${color.icon} mb-8`}>
+        <Icon size={48} />
       </div>
-      <h3 className="text-xl font-bold text-[#1a1a1a] mb-6">{title}</h3>
-      <p className="text-[#4a4a4a] mb-10 leading-relaxed">{description}</p>
+      <h3 className="text-2xl font-bold text-slate-800 mb-5">{title}</h3>
+      <p className="text-slate-600 mb-8 leading-relaxed">{description}</p>
       {linkUrl && (
         <Button
           href={linkUrl}

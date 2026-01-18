@@ -3,11 +3,18 @@ import { motion } from 'framer-motion'
 const Card = ({
   children,
   variant = 'default',
+  size = 'md',
   hover = true,
   className = '',
   ...props
 }) => {
-  const baseStyles = 'rounded-2xl p-6 transition-all duration-300'
+  const baseStyles = 'rounded-2xl transition-all duration-300'
+
+  const sizes = {
+    sm: 'p-6',
+    md: 'p-8 md:p-10',
+    lg: 'p-10 md:p-12',
+  }
 
   const variants = {
     default: 'bg-white shadow-md',
@@ -23,7 +30,7 @@ const Card = ({
 
   return (
     <motion.div
-      className={`${baseStyles} ${variants[variant]} ${hoverStyles} ${className}`}
+      className={`${baseStyles} ${sizes[size]} ${variants[variant]} ${hoverStyles} ${className}`}
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}

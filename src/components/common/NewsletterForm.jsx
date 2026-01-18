@@ -27,7 +27,7 @@ const NewsletterForm = ({ className = '' }) => {
           className="text-center py-4"
         >
           <p className="text-purple font-semibold">Thanks for subscribing!</p>
-          <p className="text-[#4a4a4a] text-sm mt-1">
+          <p className="text-slate-600 text-sm mt-1">
             We'll keep you updated on our latest news.
           </p>
         </motion.div>
@@ -39,7 +39,7 @@ const NewsletterForm = ({ className = '' }) => {
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Enter your email"
             required
-            className="flex-1 px-4 py-3 rounded-xl border border-cream-darker bg-white text-[#1a1a1a] placeholder-[#6b6b6b] focus:outline-none focus:ring-2 focus:ring-purple focus:border-transparent transition-all"
+            className="flex-1 px-4 py-3 rounded-xl border border-slate-200 bg-white text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-purple focus:border-transparent transition-all"
           />
           <Button
             type="submit"

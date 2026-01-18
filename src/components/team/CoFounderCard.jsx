@@ -11,14 +11,14 @@ const CoFounderCard = ({
 }) => {
   return (
     <motion.div
-      className="bg-white rounded-2xl p-10 shadow-md text-center hover:-translate-y-1 hover:shadow-lg transition-all duration-300"
+      className="bg-white rounded-3xl p-10 md:p-12 shadow-md text-center hover:-translate-y-1 hover:shadow-lg transition-all duration-300"
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay }}
     >
       {/* Avatar */}
-      <div className="w-36 h-36 mx-auto mb-8 rounded-full bg-gradient-to-br from-purple/20 to-orange/20 flex items-center justify-center overflow-hidden">
+      <div className="w-40 h-40 mx-auto mb-10 rounded-full bg-gradient-to-br from-purple/20 to-orange/20 flex items-center justify-center overflow-hidden">
         {image ? (
           <img
             src={image}
@@ -32,19 +32,19 @@ const CoFounderCard = ({
         )}
       </div>
 
-      <h3 className="text-xl font-bold text-[#1a1a1a] mb-2">{name}</h3>
-      <p className="text-purple font-medium mb-5">{role}</p>
+      <h3 className="text-2xl font-bold text-slate-800 mb-3">{name}</h3>
+      <p className="text-purple font-medium mb-6">{role}</p>
 
-      {bio && <p className="text-[#4a4a4a] mb-6 leading-relaxed">{bio}</p>}
+      {bio && <p className="text-slate-600 mb-8 leading-relaxed">{bio}</p>}
 
       {/* Social links */}
-      <div className="flex justify-center gap-6">
+      <div className="flex justify-center gap-8">
         {social?.linkedin && social.linkedin !== '#' && (
           <a
             href={social.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[#4a4a4a] hover:text-purple transition-colors"
+            className="text-slate-400 hover:text-purple transition-colors"
             aria-label={`${name}'s LinkedIn`}
           >
             <FaLinkedin size={20} />
@@ -55,7 +55,7 @@ const CoFounderCard = ({
             href={social.twitter}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[#4a4a4a] hover:text-purple transition-colors"
+            className="text-slate-400 hover:text-purple transition-colors"
             aria-label={`${name}'s Twitter`}
           >
             <FaTwitter size={20} />
