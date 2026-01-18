@@ -51,7 +51,7 @@ const PillarCard = ({
       <div className={`${color.icon} mb-6`}>
         <Icon size={44} />
       </div>
-      <h3 className="text-xl font-bold text-[#1a1a1a] mb-4">{title}</h3>
+      <h3 className="text-xl font-bold text-[#1a1a1a] mb-6">{title}</h3>
       <p className="text-[#4a4a4a] mb-10 leading-relaxed">{description}</p>
       {linkUrl && (
         <Button

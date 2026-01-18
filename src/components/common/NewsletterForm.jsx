@@ -32,7 +32,7 @@ const NewsletterForm = ({ className = '' }) => {
           </p>
         </motion.div>
       ) : (
-        <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3">
+        <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4">
           <input
             type="email"
             value={email}
