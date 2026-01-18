@@ -54,8 +54,8 @@ const Contact = () => {
             <AnimatedSection>
               <h2 className="text-2xl font-bold text-[#1a1a1a] mb-8">Contact Information</h2>
 
-              <div className="space-y-6">
-                <div className="flex items-start gap-4">
+              <div className="space-y-8">
+                <div className="flex items-start gap-6">
                   <div className="w-12 h-12 bg-purple/10 rounded-xl flex items-center justify-center flex-shrink-0">
                     <HiMail className="w-6 h-6 text-purple" />
                   </div>
@@ -70,7 +70,7 @@ const Contact = () => {
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
+                <div className="flex items-start gap-6">
                   <div className="w-12 h-12 bg-orange/10 rounded-xl flex items-center justify-center flex-shrink-0">
                     <HiLocationMarker className="w-6 h-6 text-orange" />
                   </div>
@@ -87,17 +87,17 @@ const Contact = () => {
             <AnimatedSection delay={0.1}>
               <h2 className="text-2xl font-bold text-[#1a1a1a] mb-8">Connect With Us</h2>
 
-              <div className="space-y-4">
+              <div className="space-y-6">
                 {socialLinks.map((social) => {
                   const Icon = social.icon
                   return (
                     <a
-                      key={social.name}
-                      href={social.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-4 p-4 rounded-xl bg-cream hover:bg-cream-dark transition-colors group"
-                    >
+                        key={social.name}
+                        href={social.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-6 p-5 rounded-xl bg-cream hover:bg-cream-dark transition-colors group"
+                      >
                       <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center shadow-sm group-hover:shadow-md transition-shadow">
                         <Icon className="w-6 h-6 text-purple" />
                       </div>

@@ -47,7 +47,7 @@ const NewsSection = () => {
             >
               <Card hover={false} className="h-full border-2 border-dashed border-purple/30">
                 <div className="text-center py-6">
-                  <h3 className="text-lg font-semibold text-purple mb-3">
+                  <h3 className="text-lg font-semibold text-purple mb-4">
                     {item.title}
                   </h3>
                   <p className="text-[#4a4a4a] text-sm leading-relaxed">

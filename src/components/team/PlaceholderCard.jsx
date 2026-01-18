@@ -16,7 +16,7 @@ const PlaceholderCard = ({ delay = 0 }) => {
         <HiPlus className="text-purple/50 w-14 h-14" />
       </div>
 
-      <h3 className="text-xl font-bold text-[#1a1a1a] mb-3">
+      <h3 className="text-xl font-bold text-[#1a1a1a] mb-4">
         This could be you!
       </h3>
       <p className="text-[#4a4a4a] mb-6 leading-relaxed">

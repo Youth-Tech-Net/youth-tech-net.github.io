@@ -38,7 +38,7 @@ const CoFounderCard = ({
       {bio && <p className="text-[#4a4a4a] mb-6 leading-relaxed">{bio}</p>}
 
       {/* Social links */}
-      <div className="flex justify-center gap-4">
+      <div className="flex justify-center gap-6">
         {social?.linkedin && social.linkedin !== '#' && (
           <a
             href={social.linkedin}
