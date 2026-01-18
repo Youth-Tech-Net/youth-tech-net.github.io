@@ -11,23 +11,61 @@ const Button = ({
   className = '',
   ...props
 }) => {
-  const baseStyles = 'inline-flex items-center justify-center font-semibold rounded-xl transition-all duration-200'
+  const baseStyles = 'inline-flex items-center justify-center font-semibold rounded-[var(--radius-lg)] transition-all'
+  const baseStyle = {
+    boxShadow: 'var(--shadow-md)',
+    transitionDuration: 'var(--transition-fast)'
+  }
 
   const variants = {
-    primary: 'bg-purple text-white hover:bg-purple-dark shadow-md hover:shadow-lg',
-    secondary: 'bg-orange text-white hover:bg-orange-dark shadow-md hover:shadow-lg',
-    outline: 'border-2 border-purple text-purple hover:bg-purple hover:text-white',
+    primary: {
+      style: {
+        backgroundColor: 'var(--color-purple)',
+        color: 'var(--color-text-inverse)',
+        transitionDuration: 'var(--transition-fast)'
+      },
+      hoverStyle: {
+        backgroundColor: 'var(--color-purple-dark)',
+        boxShadow: 'var(--shadow-lg)'
+      }
+    },
+    secondary: {
+      style: {
+        backgroundColor: 'var(--color-orange)',
+        color: 'var(--color-text-inverse)',
+        transitionDuration: 'var(--transition-fast)'
+      },
+      hoverStyle: {
+        backgroundColor: 'var(--color-orange-dark)',
+        boxShadow: 'var(--shadow-lg)'
+      }
+    },
+    outline: {
+      style: {
+        backgroundColor: 'transparent',
+        color: 'var(--color-purple)',
+        borderColor: 'var(--color-purple)',
+        borderWidth: '2px',
+        transitionDuration: 'var(--transition-fast)'
+      },
+      hoverStyle: {
+        backgroundColor: 'var(--color-purple)',
+        color: 'var(--color-text-inverse)'
+      }
+    }
   }
 
   const sizes = {
-    sm: 'px-5 py-2.5 text-sm',
-    md: 'px-8 py-3.5 text-base',
-    lg: 'px-10 py-4 text-lg',
+    sm: 'px-4 py-2 text-sm',
+    md: 'px-6 py-3 text-base',
+    lg: 'px-8 py-4 text-lg',
   }
 
-  const combinedClassName = `${baseStyles} ${variants[variant]} ${sizes[size]} ${className}`
+  const combinedClassName = `${baseStyles} ${sizes[size]} ${className}`
 
   const MotionComponent = motion.create ? motion.create('button') : motion.button
+
+  const variantConfig = variants[variant]
 
   if (href) {
     if (external) {
@@ -37,7 +75,15 @@ const Button = ({
           target="_blank"
           rel="noopener noreferrer"
           className={combinedClassName}
-          whileHover={{ scale: 1.02 }}
+          style={{
+            ...baseStyle,
+            ...variantConfig.style,
+            ...props.style
+          }}
+          whileHover={{
+            scale: 1.02,
+            ...variantConfig.hoverStyle
+          }}
           whileTap={{ scale: 0.98 }}
           {...props}
         >
@@ -50,9 +96,17 @@ const Button = ({
       <Link to={href}>
         <motion.span
           className={combinedClassName}
-          whileHover={{ scale: 1.02 }}
+          style={{
+            display: 'inline-flex',
+            ...baseStyle,
+            ...variantConfig.style,
+            ...props.style
+          }}
+          whileHover={{
+            scale: 1.02,
+            ...variantConfig.hoverStyle
+          }}
           whileTap={{ scale: 0.98 }}
-          style={{ display: 'inline-flex' }}
           {...props}
         >
           {children}
@@ -65,7 +119,15 @@ const Button = ({
     <motion.button
       onClick={onClick}
       className={combinedClassName}
-      whileHover={{ scale: 1.02 }}
+      style={{
+        ...baseStyle,
+        ...variantConfig.style,
+        ...props.style
+      }}
+      whileHover={{
+        scale: 1.02,
+        ...variantConfig.hoverStyle
+      }}
       whileTap={{ scale: 0.98 }}
       {...props}
     >

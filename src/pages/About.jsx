@@ -35,15 +35,15 @@ const About = () => {
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
             <AnimatedSection>
-              <h2 className="text-2xl font-bold text-[#1a1a1a] mb-4">Our Vision</h2>
-              <p className="text-[#4a4a4a] leading-relaxed">
+              <h2 className="text-2xl font-bold text-[#1a1a1a] mb-4 text-center">Our Vision</h2>
+              <p className="text-[#4a4a4a] leading-relaxed text-center">
                 {CONTENT.mission.vision}
               </p>
             </AnimatedSection>
 
             <AnimatedSection delay={0.1}>
-              <h2 className="text-2xl font-bold text-[#1a1a1a] mb-4">Our Mission</h2>
-              <p className="text-[#4a4a4a] leading-relaxed">
+              <h2 className="text-2xl font-bold text-[#1a1a1a] mb-4 text-center">Our Mission</h2>
+              <p className="text-[#4a4a4a] leading-relaxed text-center">
                 {CONTENT.mission.short}
               </p>
             </AnimatedSection>
@@ -65,7 +65,7 @@ const About = () => {
           <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
             <AnimatedSection delay={0}>
               <div className="text-center">
-                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-purple/10 flex items-center justify-center">
+                <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-purple/10 flex items-center justify-center">
                   <span className="text-2xl">🌐</span>
                 </div>
                 <h3 className="font-semibold text-[#1a1a1a] mb-2">Sociotechnical Perspective</h3>
@@ -77,7 +77,7 @@ const About = () => {
 
             <AnimatedSection delay={0.1}>
               <div className="text-center">
-                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-orange/10 flex items-center justify-center">
+                <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-orange/10 flex items-center justify-center">
                   <span className="text-2xl">💪</span>
                 </div>
                 <h3 className="font-semibold text-[#1a1a1a] mb-2">Youth Empowerment</h3>
@@ -89,7 +89,7 @@ const About = () => {
 
             <AnimatedSection delay={0.2}>
               <div className="text-center">
-                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-yellow-brand/50 flex items-center justify-center">
+                <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-yellow-brand/50 flex items-center justify-center">
                   <span className="text-2xl">🤝</span>
                 </div>
                 <h3 className="font-semibold text-[#1a1a1a] mb-2">Interdisciplinary Collaboration</h3>
