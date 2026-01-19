@@ -17,7 +17,7 @@ switch (env) {
     break
 
   case 'production':
-    build.siteURL = 'https://example.com/'
+    build.siteURL = 'https://youth-tech-net.github.io/'
     break
 
   default:
