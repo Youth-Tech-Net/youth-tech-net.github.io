@@ -1,0 +1,43 @@
+---
+import Navbar from '../Navbar.astro'
+
+const headerListItems = [
+  'Technology policy',
+  'AI trust and safety',
+  'Social media & human rights',
+  'Computing ethics',
+  'Critical engagement',
+  'Problem-solving',
+  'Youth voice'
+]
+const site = Astro.site
+---
+<header class="header w-full min-h-screen flex flex-col justify-between">
+  <Navbar />
+  <div class="flex flex-col justify-center h-full py-12">
+    <div class="self-center items-center flex flex-col sm:flex-row w-full md:w-5/6 xl:w-2/3 px-4 sm:px-0">
+      <div class="w-full text-center sm:text-left sm:w-1/2 py-12 sm:px-8">
+        <h1 class="tracking-wide text-royalOrchid text-2xl mb-6">
+          Australian youth building our <span class="text-gray-800 font-bold tracking-widest">sociotechnical future</span>
+        </h1>
+        <h2 class="font-bold tracking-widest text-4xl">
+          We weave a better future together
+        </h2>
+        <span class="content__container block font-light text-browngray text-2xl my-6">
+          <ul class="content__container__list">
+            {headerListItems.map((item) => <li class="content__container__list__item xl:pl-3">{item}</li>)}
+          </ul>
+        </span>
+        <p class="font-bold tracking-widest text-4xl">Join us today!</p>
+      </div>
+      <div class="w-full sm:w-1/2">
+        <img src={`${site}img/biglogo.png`} alt="YouthTechNet logo">
+      </div>
+    </div>
+  </div>
+  <div class="flex flex-row w-full justify-center pb-12">
+    <a class="px-10 py-2 text-gray-200 bg-royalOrchid rounded-full shadow-md text-lg hover:bg-gray-800 hover:border-red" href="#about">
+      Learn More
+    </a>
+  </div>
+</header>

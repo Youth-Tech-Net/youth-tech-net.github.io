@@ -1,0 +1,46 @@
+---
+import type { CollectionEntry } from 'astro:content'
+
+interface Props {
+  entry: CollectionEntry<'sections'>
+}
+
+const { entry } = Astro.props
+const { title } = entry.data
+---
+<div id="team" class="w-full flex flex-col justify-center items-center py-12 sm:py-20 bg-gray-50">
+  <div class="w-full md:w-5/6 xl:w-2/3 px-4 sm:px-8 py-6 sm:py-12 text-center">
+    <h2 class="font-bold tracking-widest text-4xl mb-6">{title}</h2>
+    <div class="font-light text-gray-600 text-xl mb-12">
+      <slot />
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+      <div class="bg-white rounded-lg shadow-md p-8 hover:shadow-lg transition-shadow">
+        <div class="w-32 h-32 mx-auto mb-4 bg-royalOrchid rounded-full flex items-center justify-center text-white text-5xl font-bold">
+          VF
+        </div>
+        <h3 class="text-2xl font-bold text-gray-800 mb-2">Veve Fry</h3>
+        <p class="text-royalOrchid font-semibold mb-4">Co-Founder</p>
+        <p class="text-gray-600">
+          Passionate about youth empowerment and the intersection of technology and society. Working to ensure young voices are heard in shaping our digital future.
+        </p>
+      </div>
+      <div class="bg-white rounded-lg shadow-md p-8 hover:shadow-lg transition-shadow">
+        <div class="w-32 h-32 mx-auto mb-4 bg-vividTangerine rounded-full flex items-center justify-center text-white text-5xl font-bold">
+          HO
+        </div>
+        <h3 class="text-2xl font-bold text-gray-800 mb-2">Harrison Oates</h3>
+        <p class="text-vividTangerine font-semibold mb-4">Co-Founder</p>
+        <p class="text-gray-600">
+          Dedicated to building inclusive technology ecosystems and advocating for youth participation in policy decisions that affect our generation.
+        </p>
+      </div>
+    </div>
+    <div class="mt-12 text-center">
+      <p class="text-2xl font-bold text-royalOrchid mb-4">This could be you!</p>
+      <a href="#register" class="inline-block px-10 py-3 text-gray-200 bg-royalOrchid rounded-full shadow-md text-lg hover:bg-vividTangerine hover:border-vividTangerine hover:text-gray-800 transition-all">
+        Join Us Today
+      </a>
+    </div>
+  </div>
+</div>
