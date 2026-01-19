@@ -11,7 +11,20 @@ const sectionsCollection = defineCollection({
   })
 })
 
+const teamCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    name: z.string(),
+    role: z.string(),
+    initials: z.string(),
+    image: z.string().optional(), // Optional profile image path
+    color: z.enum(['royalOrchid', 'vividTangerine']),
+    order: z.number().optional(),
+  })
+})
+
 // 3. Export a single `collections` object to register your collection(s)
 export const collections = {
-  'sections': sectionsCollection
+  'sections': sectionsCollection,
+  'team': teamCollection
 }
