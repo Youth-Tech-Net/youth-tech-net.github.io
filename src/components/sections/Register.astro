@@ -12,19 +12,25 @@ const { title } = Astro.props
       <slot />
     </div>
     <p class="text-vividTangerine text-lg mb-8">Tell us about yourself and join the movement!</p>
-    <form class="w-full max-w-lg my-20 mx-auto" action="#" method="post" id="registration-form" target="_blank">
-      <div class="flex items-center border-b border-royalOrchid py-2">
-        <input class="appearance-none bg-transparent border border-transparent w-full text-gray-200 focus:outline-none focus:bg-gray-300 focus:text-gray-800 focus:border-gray-400 mr-3 py-2 px-3" type="email" value="" name="EMAIL" placeholder="your.email@example.com" aria-label="Email Address" required>
-        <button class="flex-shrink-0 bg-royalOrchid border-royalOrchid hover:bg-vividTangerine hover:border-vividTangerine hover:text-gray-800 border text-gray-200 py-2 px-4" type="submit" name="subscribe">
-          Join
-        </button>
+    <form class="w-full max-w-lg my-20 mx-auto" action="https://api.web3forms.com/submit" method="POST" id="registration-form">
+      <input type="hidden" name="access_key" value="9516e432-d094-458e-afb6-adb0c61360b3">
+      <input type="hidden" name="subject" value="New YouthTechNet Registration">
+      <input type="hidden" name="redirect" value="https://youthtechnet.org/thank-you">
+      <div class="mb-4">
+        <input class="appearance-none bg-transparent border border-royalOrchid w-full text-gray-200 focus:outline-none focus:bg-gray-300 focus:text-gray-800 focus:border-gray-400 py-2 px-3" type="email" value="" name="email" placeholder="your.email@example.com" aria-label="Email Address" required>
       </div>
-      <label class="block text-gray-200 text-left px-2 mt-4" for="gdpr_37169">
-        <input class="leading-tight" type="checkbox" id="gdpr_37169" name="gdpr[37169]" value="Y" required>
+      <div class="mb-4">
+        <textarea class="appearance-none bg-transparent border border-royalOrchid w-full text-gray-200 focus:outline-none focus:bg-gray-300 focus:text-gray-800 focus:border-gray-400 py-2 px-3 resize-none" name="message" rows="4" placeholder="Tell us about yourself, your university, or your interest in tech policy..." aria-label="Message"></textarea>
+      </div>
+      <label class="block text-gray-200 text-left mb-6" for="email_updates">
+        <input class="leading-tight mr-2" type="checkbox" id="email_updates" name="email_updates" value="yes" checked>
         <span class="text-md font-light">
-          I agree with the <a href="/privacy" class="underline hover:no-underline hover:text-royalOrchid" title="Privacy Policy" target="_blank">Privacy Policy</a>
+          I'd like to receive email updates about Youth Tech Net events and initiatives
         </span>
       </label>
+      <button class="w-full bg-royalOrchid border-royalOrchid hover:bg-vividTangerine hover:border-vividTangerine hover:text-gray-800 border text-gray-200 py-3 px-4 text-lg" type="submit">
+        Join
+      </button>
     </form>
   </div>
 </div>
