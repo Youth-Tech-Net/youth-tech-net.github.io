@@ -1,17 +1,17 @@
 [
   {
-    "title": "University Hubs",
+    "title": "Education & Events",
     "icon": "icon1.svg",
-    "content": "We operate university hubs across Australia that engage students in education and discussion on technology and society issues. Through these hubs, we foster informed, critical engagement with the societal impacts of emerging technologies."
+    "content": "Hubs host seminars, lectures, and events that engage students in critical discussions about technology and society. We create spaces for informed dialogue about the societal impacts of emerging technologies."
   },
   {
-    "title": "Student Led Research",
-    "icon": "icon2.svg",
-    "content": "We conduct research and support youth-led projects across disciplines, including computer science, AI trust and safety, AI ethics, and technology policy, law, and regulation."
-  },
-  {
-    "title": "Policy Advocacy",
+    "title": "Policy Engagement",
     "icon": "icon3.svg",
-    "content": "We give youth a voice to Australian policy issues by running tech policy engagement programs and publishing policy recommendations."
+    "content": "We give youth a voice in Australian policy issues by running tech policy engagement programs and publishing policy recommendations that reflect our lived experience."
+  },
+  {
+    "title": "Community Building",
+    "icon": "icon2.svg",
+    "content": "Hubs operate as societies or clubs within universities, bringing together students who care about how technologies are designed and regulated. Join a community of like-minded peers."
   }
 ]
