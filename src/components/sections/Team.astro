@@ -1,0 +1,62 @@
+---
+import type { CollectionEntry } from 'astro:content'
+import { getCollection } from 'astro:content'
+
+interface Props {
+  entry: CollectionEntry<'sections'>
+}
+
+const { entry } = Astro.props
+const { title } = entry.data
+
+// Get all team members and sort by order
+const teamMembers = (await getCollection('team')).sort((a, b) => {
+  const orderA = a.data.order ?? 999
+  const orderB = b.data.order ?? 999
+  return orderA - orderB
+})
+
+// Render the team member content
+const membersWithContent = await Promise.all(
+  teamMembers.map(async (member) => ({
+    ...member.data,
+    content: await member.render()
+  }))
+)
+---
+<div id="team" class="w-full flex flex-col justify-center items-center py-12 sm:py-20 bg-gray-50">
+  <div class="w-full md:w-5/6 xl:w-2/3 px-4 sm:px-8 py-6 sm:py-12 text-center">
+    <h2 class="font-bold tracking-widest text-4xl mb-6">{title}</h2>
+    <div class="font-light text-gray-600 text-xl mb-12">
+      <slot />
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+      {membersWithContent.map((member) => (
+        <div class="bg-white rounded-lg shadow-md p-8 hover:shadow-lg transition-shadow">
+          {member.image ? (
+            <img
+              src={member.image}
+              alt={member.name}
+              class="w-32 h-32 mx-auto mb-4 rounded-full object-cover"
+            />
+          ) : (
+            <div class={`w-32 h-32 mx-auto mb-4 bg-${member.color} rounded-full flex items-center justify-center text-white text-5xl font-bold`}>
+              {member.initials}
+            </div>
+          )}
+          <h3 class="text-2xl font-bold text-gray-800 mb-2">{member.name}</h3>
+          <p class={`text-${member.color} font-semibold mb-4`}>{member.role}</p>
+          <div class="text-gray-600">
+            <member.content.Content />
+          </div>
+        </div>
+      ))}
+    </div>
+    <div class="mt-12 text-center">
+      <p class="text-2xl font-bold text-royalOrchid mb-4">This could be you!</p>
+      <a href="#register" class="inline-block px-10 py-3 text-gray-200 bg-royalOrchid rounded-full shadow-md text-lg hover:bg-vividTangerine hover:border-vividTangerine hover:text-gray-800 transition-all">
+        Join Us Today
+      </a>
+    </div>
+  </div>
+</div>

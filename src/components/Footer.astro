@@ -1,0 +1,49 @@
+---
+import siteData from '../data/site.json'
+
+const pn = Astro.url.pathname
+const isHome = pn === '/'
+const site = Astro.site
+const abtLink = isHome
+  ? '#about'
+  : `${site}#about`
+const ftLink = isHome
+  ? '#features'
+  : `${site}#features`
+---
+<footer class="w-full flex flex-col sm:flex-row sm:justify-center text-lg tracking-wide px-4 sm:px-0 py-16">
+  <div class="text-center pr-0 sm:pr-8 py-4">
+    <ul class="list-none">
+      {siteData.social.map((scm) => (
+        <li>
+          <a class="text-gray-800 hover:text-royalOrchid no-underline" href={scm.url} target="_blank" rel="_noopener">{scm.title}</a>
+        </li>
+      ))}
+    </ul>
+  </div>
+  <div class="h-px sm:h-auto w-1/2 sm:w-px bg-royalOrchid mx-auto sm:mx-0"></div>
+  <div class="text-center px-8 py-4">
+    <ul class="list-none">
+      <li>
+        <a class="text-gray-800 hover:text-royalOrchid no-underline" href={abtLink}>About</a>
+      </li>
+      <li>
+        <a class="text-gray-800 hover:text-royalOrchid no-underline" href={ftLink}>Our Work</a>
+      </li>
+    </ul>
+  </div>
+</footer>
+<div class="w-full">
+  <span class="block text-center text-gray-800 text-sm font-light">
+    &copy; {siteData.author}
+  </span>
+</div>
+<div class="">
+  <a id="btt" class="hidden fixed bottom-0 right-0 mb-4 mr-4 text-gray-200 border border-royalOrchid hover:bg-gray-200 hover:text-royalOrchid hover:border-browngray no-underline px-6 py-1 bg-royalOrchid shadow-md" href="#top" title="Back to Top">UP</a>
+</div>
+<!-- "Follow" Tooltip template -->
+<template id="followTip">
+  {siteData.social.map((scm) => (
+    <a href={scm.url} class="inline-block text-gray-200 text-sm bg-royalOrchid shadow-md hover:bg-gray-200 hover:text-gray-800 no-underline p-1 px-4 mx-2 my-1" target="_blank" rel="noopener">{scm.title}</a>
+  ))}
+</template>

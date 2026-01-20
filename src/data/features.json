@@ -1,0 +1,17 @@
+[
+  {
+    "title": "Education & Events",
+    "icon": "icon1.svg",
+    "content": "Hubs host seminars, lectures, and events that engage students in critical discussions about technology and society. We create spaces for informed dialogue about the societal impacts of emerging technologies."
+  },
+  {
+    "title": "Policy Engagement",
+    "icon": "icon3.svg",
+    "content": "We give youth a voice in Australian policy issues by running tech policy engagement programs and publishing policy recommendations that reflect our lived experience."
+  },
+  {
+    "title": "Community Building",
+    "icon": "icon2.svg",
+    "content": "Hubs operate as societies or clubs within universities, bringing together students who care about how technologies are designed and regulated. Join a community of like-minded peers."
+  }
+]

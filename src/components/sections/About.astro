@@ -1,0 +1,27 @@
+---
+interface Props {
+  title: string
+}
+
+const site = Astro.site
+const { title } = Astro.props
+---
+<div id="about" class="w-full min-h-screen flex flex-col justify-center items-center py-12">
+  <div class="self-center text-center w-full sm:w-2/3 xl:w-1/2 px-4 sm:px-0">
+    <h2 class="font-bold tracking-wider text-royalOrchid text-4xl mb-4">{title}</h2>
+    <div class="font-light text-gray-700 text-xl">
+      <slot />
+    </div>
+    <div class="my-12 max-w-full mx-auto">
+      <img class="w-full rounded-lg shadow-lg" src={`${site}img/ZoyaYasmine-TheTwo Cultures -1280x905.png`} alt="The Two Cultures - An artistic representation of AI and technology">
+      <p class="text-sm text-gray-500 mt-2 text-center">
+        <a href="https://www.linkedin.com/in/zoya-yasmine-6989b6209/" class="hover:text-royalOrchid" target="_blank" rel="noopener">Zoya Yasmine</a> /
+        <a href="https://betterimagesofai.org/images?artist=ZoyaYasmine&title=TheTwoCultures" class="hover:text-royalOrchid" target="_blank" rel="noopener">The Two Cultures</a> /
+        <a href="https://creativecommons.org/licenses/by/4.0/" class="hover:text-royalOrchid" target="_blank" rel="noopener">Licensed by CC-BY 4.0</a>
+      </p>
+    </div>
+  </div>
+  <div class="flex flex-row w-full justify-center">
+    <a class="px-10 py-2 text-gray-200 bg-royalOrchid rounded-full shadow-md text-lg hover:bg-vividTangerine hover:border-vividTangerine hover:text-gray-800" href="#features">See Our Work</a>
+  </div>
+</div>
