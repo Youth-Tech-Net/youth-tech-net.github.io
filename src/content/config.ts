@@ -23,8 +23,23 @@ const teamCollection = defineCollection({
   })
 })
 
+// Publications collection schema
+const publicationsCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    authors: z.array(z.string()),
+    tags: z.array(z.string()),
+    cover: z.string().optional(),
+    pdf: z.string().optional(),
+    date: z.string().optional(),
+    // Add more fields as needed
+  })
+})
+
 // 3. Export a single `collections` object to register your collection(s)
 export const collections = {
   'sections': sectionsCollection,
-  'team': teamCollection
+  'team': teamCollection,
+  'publications': publicationsCollection
 }

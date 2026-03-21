@@ -1,0 +1,44 @@
+---
+import tagColors from '../../data/tagColors.json';
+const { publications } = Astro.props;
+
+// Helper to extract abstract section from markdown body
+function extractAbstract(body) {
+  const match = body.match(/## Abstract\n+([\s\S]*?)(\n+## |$)/);
+  return match ? match[1].trim() : '';
+}
+---
+<section class="py-16 bg-white">
+  <div class="max-w-5xl mx-auto px-4">
+    <h1 class="text-3xl sm:text-4xl font-bold text-royalOrchid mb-8 text-center">Publications</h1>
+    <div class="space-y-12">
+      {publications.map((pub) => (
+        <div class="flex flex-col border-b border-vanillaCustard pb-8 last:border-b-0 last:pb-0 bg-white rounded-lg shadow-lg">
+          {pub.data.cover && (
+            <img src={pub.data.cover} alt={pub.data.title + ' cover'} class="w-full h-64 object-contain object-top rounded-t mb-4 shadow bg-gray-100" loading="lazy" />
+          )}
+          <div class="flex-1 px-4 md:px-8 py-4">
+            <div class="flex items-center justify-between mb-2 mt-2 border-b border-gray-100 pb-2">
+              <h2 class="text-2xl font-semibold text-royalOrchid">{pub.data.title}</h2>
+              {pub.data.pdf && (
+                <a href={pub.data.pdf} title="Download PDF" download class="ml-3 transition-transform duration-150 hover:scale-110 focus:outline-none" style="line-height:0;">
+                  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAACHklEQVR4nO3Xz0uUQRzH8edf8ReJ2iGFDqZ4Euzg1UfLFikTTDxEBhJBCUFmt6gIsSB08SIeokAXEb2FoOlBaDMslFzGiCWy/LXuO8ZhfdLFInNmd2g+MDzPHha+r2e/83xnPc/FRW/wc9Gy6nK6rQUkW8+YQ6ABsP12luSVCjMILQARM4dAF8AUAp0AYQChHSA0I4wAhEaEMYDQhDAKEBoQxgFiPyIrAX+zPAfwHQD7AHdCsLIIP9Yg3G0h4EuMvSR3oLXcIsCl0qD4+dfq2nPZIsD5E7CTUIUvv7MQ4OfCh/mgfWQ6ay0DhO8FbZRIQKjYMkBzGWxtKMD7uSMXT0bnwMy4AkSnoT7PMkBDAcRXgzbqu2nhIJPZ3tq97A609iqLABNDqvDhhzAVUfexj9By2gJAcxlsfFezoK0SLp6C5QWFWHijfp1nt2HkOYwNQiQMj67BuYIsAQw9UMXKTSw/d9RAZIA/ZnI4CwBNJ+FbXBUUnQGxtL/I1J5IZWURlqLqfnM9wwB5hHjZl/5kZfu86IWuBmgsVENObuqDmZ3MEKA+H3pvwOdPQTGyQNnfhx0h5IHvcQe8egqj/er7oZIMAK5Wq435a+Tkla10lLeXbxJwqw7Wvqb3+PWzx1Y82gBy0qZaJi6CU+fg/WMtHm2AC0XpbxQ5vP7hzIPxFnrSqZ6+/PvYf/fQQZS9AN/M8hzAdwAc4L8GuLh4v81P2tZphAMmDCgAAAAASUVORK5CYII=" alt="pdf" class="h-5 w-5 inline-block align-middle drop-shadow-sm" loading="lazy" />
+                </a>
+              )}
+            </div>
+            <div class="mb-2 text-sm text-gray-600">By {pub.data.authors.join(", ")}</div>
+            <div class="mb-2 flex flex-wrap gap-2">
+              {pub.data.tags.map(tag => {
+                const colorClass = tagColors[tag] || tagColors["default"];
+                return <span class={colorClass + " px-2 py-1 rounded text-xs"}>{tag}</span>;
+              })}
+            </div>
+            <div class="mb-4 text-gray-700">
+              <strong>Abstract:</strong> {extractAbstract(pub.body)}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
