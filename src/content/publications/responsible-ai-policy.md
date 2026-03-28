@@ -7,7 +7,7 @@ tags:
   - "AI"
   - "Policy"
 cover: "/img/undraw_internet-on-the-go_npa2.svg"
-pdf: "/publications/responsible-ai-policy.pdf"
+pdf: "/pdfs/_responsible-ai-policy.pdf"
 date: "2026-03-18"
 ---
 

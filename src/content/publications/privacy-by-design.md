@@ -6,7 +6,7 @@ tags:
   - "Privacy"
   - "Youth"
 cover: "/img/undraw_gdpr_g020.svg"
-pdf: "/publications/privacy-by-design.pdf"
+pdf: "/pdfs/_privacy-by-design.pdf"
 date: "2026-03-19"
 ---
 

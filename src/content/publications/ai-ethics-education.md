@@ -7,7 +7,7 @@ tags:
   - "AI"
   - "Ethics"
 cover: "/img/undraw_ai-research-assistant_cxx0.svg"
-pdf: "/publications/ai-ethics-education.pdf"
+pdf: "/pdfs/_ai-ethics-education.pdf"
 date: "2026-03-20"
 ---
 
