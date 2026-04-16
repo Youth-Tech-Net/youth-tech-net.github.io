@@ -1,0 +1,13 @@
+---
+import Base from "../layouts/Base.astro";
+import { getCollection } from "astro:content";
+import PublicationsSection from "../components/sections/PublicationsSection.astro";
+import Navbar from "../components/Navbar.astro";
+
+const publications = await getCollection("publications");
+---
+
+<Base>
+  <Navbar />
+  <PublicationsSection publications={publications} />
+</Base>

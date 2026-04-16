@@ -1,0 +1,11 @@
+{
+  "Education": "bg-royalOrchid text-white",
+  "Technology": "bg-vividTangerine text-white",
+  "Research": "bg-royalOrchid text-white",
+  "Policy": "bg-vividTangerine text-white",
+  "AI": "bg-royalOrchid text-white",
+  "Ethics": "bg-vividTangerine text-white",
+  "Privacy": "bg-royalOrchid text-white",
+  "Youth": "bg-vividTangerine text-white",
+  "default": "bg-royalOrchid text-white"
+}
