@@ -3,9 +3,12 @@ import { getCollection } from 'astro:content'
 import Header from './Header.astro'
 import SectionResolver from './SectionResolver.astro'
 
+import UpcomingEventBannerLoader from './UpcomingEventBannerLoader.astro';
+
 const sections = await getCollection('sections')
 ---
 <Header />
+<UpcomingEventBannerLoader />
 <main>
   {sections.map(sect => {
     return <SectionResolver

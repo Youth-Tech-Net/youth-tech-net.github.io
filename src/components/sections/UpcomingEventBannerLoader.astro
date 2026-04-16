@@ -1,0 +1,7 @@
+---
+import UpcomingEventBanner from './UpcomingEventBanner.astro';
+import events from '../../data/events.json';
+
+const upcomingEvent = events.find(e => e.type === 'upcoming');
+---
+{upcomingEvent && <UpcomingEventBanner event={upcomingEvent} />}

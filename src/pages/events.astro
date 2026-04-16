@@ -1,0 +1,17 @@
+---
+import Base from "../layouts/Base.astro";
+import Navbar from "../components/Navbar.astro";
+import EventsSection from "../components/sections/EventsSection.astro";
+import events from "../data/events.json";
+
+const today = new Date().toISOString().slice(0, 10);
+const upcoming = events.filter(e => e.date >= today);
+const past = events.filter(e => e.date < today);
+---
+
+<Base>
+  <Navbar />
+  <EventsSection upcoming={upcoming} past={past} />
+</Base>
+  </body>
+</html>
