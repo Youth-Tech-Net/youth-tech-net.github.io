@@ -33,6 +33,7 @@ const publicationsCollection = defineCollection({
     cover: z.string().optional(),
     pdf: z.string().optional(),
     date: z.string().optional(),
+    draft: z.boolean().optional(),
     // Add more fields as needed
   })
 })

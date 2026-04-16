@@ -108,7 +108,7 @@ export function initPublicationSearch(publications = []) {
 
         const slug = li.dataset.slug;
         if (slug) {
-            window.open(`/publications/${slug}/`, '_blank');
+            window.location.href = `/publications/${slug}/`;
         }
     });
 
