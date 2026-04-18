@@ -17,6 +17,7 @@ const regLink = isHome
   ? '#register'
   : `${site}#register`
 
+const eventsLink = '/events';
 const pubsLink = '/publications';
 ---
 <nav class="flex flex-col sm:flex-row w-full justify-between items-center px-4 sm:px-6 py-1 bg-white shadow">
@@ -36,6 +37,7 @@ const pubsLink = '/publications';
     {siteData.social.map((scm) => (
       <a href={scm.url} class="text-gray-800 font-bold hover:text-royalOrchid text-lg text-center w-full no-underline sm:hidden py-2" target="_blank" rel="noopener">{scm.title}</a>
     ))}
+    <a class="text-gray-800 font-bold hover:text-royalOrchid text-lg text-center w-full no-underline sm:w-auto sm:px-4 py-2 sm:py-1" href={eventsLink}>Events</a>
     <a class="text-gray-800 font-bold hover:text-royalOrchid text-lg text-center w-full no-underline sm:w-auto sm:px-4 py-2 sm:py-1" href={pubsLink}>Publications</a>
     <a class="text-gray-800 border border-royalOrchid text-lg bg-gray-100 rounded-full w-auto no-underline text-center sm:text-left hover:border-vividTangerine hover:text-vividTangerine hover:bg-white hover:shadow-md px-6 py-1 my-2 sm:my-0 sm:ml-4" href={regLink}>Join Hub</a>
   </div>
