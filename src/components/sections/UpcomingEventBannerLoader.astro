@@ -2,6 +2,12 @@
 import UpcomingEventBanner from './UpcomingEventBanner.astro';
 import events from '../../data/events.json';
 
-const upcomingEvent = events.find(e => e.type === 'upcoming');
+const now = new Date();
+const upcomingEvent = events
+	.filter(e => {
+		if (!e.date) return false;
+		const eventDate = new Date(e.date + (e.time ? ' ' + e.time : ''));
+		return e.type === 'upcoming' && eventDate > now;
+	})[0];
 ---
 {upcomingEvent && <UpcomingEventBanner event={upcomingEvent} />}

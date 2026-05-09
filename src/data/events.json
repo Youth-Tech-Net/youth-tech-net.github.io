@@ -1,10 +1,18 @@
 [
   {
+    "title": "Llama 1101: Run your own AI",
+    "date": "2026-05-22",
+    "time": "6:00 PM",
+    "image": "/img/posters/llama.png",
+    "link": "https://www.facebook.com/share/p/192DK8f98G/",
+    "type": "upcoming"
+  },
+  {
     "title": "Are We Cooked? Pints & Perspectives on AI",
     "date": "2026-04-24",
     "time": "6:30 PM",
     "image": "/img/posters/areWeCooked.png",
     "link": "https://www.facebook.com/events/946812864393749",
-    "type": "upcoming"
+    "type": "past"
   }
 ]
