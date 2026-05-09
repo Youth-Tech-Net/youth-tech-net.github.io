@@ -2,11 +2,9 @@
 name: Sheryl Shankar
 role: Social Media Manager
 initials: SS
-image: /img/harrison-headshot.jpg
+image: /img/sheryl-headshot.jpeg
 color: vividTangerine
 order: 4
 ---
 
-Harrison Oates is a final-year Bachelor of Advanced Computing (Research & Development) (Honours) / Bachelor of Politics, Philosophy & Economics student at the Australian National University, specialising in Artificial Intelligence.
-He is a Council Member of Linux Australia and Vice Chair of the Youth Coalition of the ACT, and has contributed to national youth technology policy processes, including as a member of the inaugural eSafety Youth Council.
-His work spans technical research in AI and planning, alongside youth technology policy.
+Sheryl studies PPE and Science at ANU. She is passionate about the social and political impacts of AI, particularly how emerging technologies shape young people’s futures and intersect with challenges like climate change. Through Youth Tech Net, she is interested in creating more accessible, critical, and inclusive conversations around AI and its role in society.

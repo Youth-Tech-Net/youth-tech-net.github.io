@@ -2,9 +2,9 @@
 name: Jasmine
 role: Executive Committee Member
 initials: J
-image: /img/veve-headshot.jpg
+image: /img/jasmine-headshot.jpeg
 color: royalOrchid
 order: 5
 ---
 
-Veve Fry is a final-year undergraduate honours student in the Australian National University PhB (Humanities & Social Sciences) program. She holds a major in human rights. Veve’s research focuses on AI risk regulation, particularly the EU AI Act, and the nexus between risk-based approaches and human rights norms and law. Veve is currently undertaking honours in international relations, set to graduate in 2026. 
+Jasmine is a second-year Bachelor of Arts student at the Australian National University, majoring in Sociology and Demography. She is particularly interested in how the interaction between human and AI reshapes our social structures and human behaviour.

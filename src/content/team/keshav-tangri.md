@@ -2,11 +2,9 @@
 name: Keshav Tangri
 role: Site Developer
 initials: KT
-image: /img/harrison-headshot.jpg
+image: /img/keshav-headshot.jpg
 color: vividTangerine
 order: 7
 ---
 
-Harrison Oates is a final-year Bachelor of Advanced Computing (Research & Development) (Honours) / Bachelor of Politics, Philosophy & Economics student at the Australian National University, specialising in Artificial Intelligence.
-He is a Council Member of Linux Australia and Vice Chair of the Youth Coalition of the ACT, and has contributed to national youth technology policy processes, including as a member of the inaugural eSafety Youth Council.
-His work spans technical research in AI and planning, alongside youth technology policy.
+Keshav Tangri is a recent Master of Computing graduate from the Australian National University, specialising in Data Science. He has approximately four years of experience across software development and AI-enabled tools, and currently works as a Software Development Officer at the Research School of Physics, ANU. Keshav is particularly interested in how AI is being adopted across different age groups through chatbots, social networking platforms, and media creation tools. Through Youth Tech Net, he hopes to contribute thoughtful perspectives on how data use in these technologies should be shaped responsibly, ethically, and with young people in mind.

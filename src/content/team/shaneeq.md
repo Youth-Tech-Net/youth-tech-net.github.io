@@ -2,11 +2,9 @@
 name: Shaneeq
 role: Executive Committee Member
 initials: S
-image: /img/harrison-headshot.jpg
+image: /img/shaneeq-headshot.jpeg
 color: vividTangerine
 order: 6
 ---
 
-Harrison Oates is a final-year Bachelor of Advanced Computing (Research & Development) (Honours) / Bachelor of Politics, Philosophy & Economics student at the Australian National University, specialising in Artificial Intelligence.
-He is a Council Member of Linux Australia and Vice Chair of the Youth Coalition of the ACT, and has contributed to national youth technology policy processes, including as a member of the inaugural eSafety Youth Council.
-His work spans technical research in AI and planning, alongside youth technology policy.
+Shaneeq is a final-year Bachelor of Business Administration and Bachelor of International Relations, with a minor in Asia-Pacific International Relations Undergraduate student at the Australian National University. His work has focused on public policy and advocacy for more culturally literate and equitable governance systems. He has experience co-authoring several parliamentary submissions and has presented supplementary evidence for one such submission to the ACT Legislative Assembly.  Shaneeq brings a strong interest in crafting policy that can shape emerging tech to innovate, while simultaneously promoting inclusive and equitable societal outcomes.
