@@ -1,5 +1,5 @@
 ---
-name: Jasmine
+name: Jasmine Ma
 role: Executive Committee Member
 initials: J
 image: /img/jasmine-headshot.jpeg
