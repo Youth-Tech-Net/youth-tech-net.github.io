@@ -1,5 +1,5 @@
 ---
-name: Shaneeq
+name: Shaneeq Syed
 role: Executive Committee Member
 initials: S
 image: /img/shaneeq-headshot.jpeg
