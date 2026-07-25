@@ -1,11 +1,20 @@
 [
+
+  {
+    "title": "AI - Hype or Hope ? come & discuss!",
+    "date": "2026-08-07",
+    "time": "6:30 PM",
+    "image": "/img/posters/hype-hope.png",
+    "link": "https://www.facebook.com/events/s/llama-1001-build-your-own-ai/27312501915024659",
+    "type": "upcoming"
+  },
   {
     "title": "Llama 1101: Run your own AI",
     "date": "2026-05-22",
     "time": "6:00 PM",
     "image": "/img/posters/llama.png",
     "link": "https://www.facebook.com/events/s/llama-1001-build-your-own-ai/27312501915024659",
-    "type": "upcoming"
+    "type": "past"
   },
   {
     "title": "Are We Cooked? Pints & Perspectives on AI",
