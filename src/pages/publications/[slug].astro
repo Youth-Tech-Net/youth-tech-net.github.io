@@ -18,17 +18,18 @@ let sections = {};
 let otherPublications = [];
 if (publication) {
   metaTitle = publication.data.title + " | YouthTechNet Publications";
-  metaDescription = publication.body.match(/## Abstract\n+([\s\S]*?)(\n+## |$)/)?.[1]?.trim() || publication.data.title;
+  // Extract first section content for meta description
+  const firstSectionMatch = publication.body.match(/##\s+\S+\n+([\s\S]*?)(\n+##\s+\S+|$)/);
+  metaDescription = firstSectionMatch?.[1]?.trim() || publication.data.title;
   metaImage = publication.data.cover;
-  // Extract sections by heading
-  const sectionNames = ["Abstract", "Introduction", "Methods", "Results", "Discussion", "Conclusion"];
-  for (let i = 0; i < sectionNames.length; i++) {
-    const current = sectionNames[i];
-    const next = sectionNames[i + 1];
-    const regex = new RegExp(`## ${current}\\n+([\\s\\S]*?)${next ? `(?=## ${next})` : ''}`);
-    const match = publication.body.match(regex);
-    if (match) {
-      sections[current] = match[1].trim();
+  // Dynamically extract all ## sections from body
+  const sectionRegex = /##\s+(\S[\s\S]*?)\n+([\s\S]*?)(?=##\s+\S+|$)/g;
+  let match;
+  while ((match = sectionRegex.exec(publication.body)) !== null) {
+    const sectionTitle = match[1].trim();
+    const sectionContent = match[2].trim();
+    if (sectionTitle && sectionContent) {
+      sections[sectionTitle] = sectionContent;
     }
   }
   // Get other publications for sidebar
@@ -71,7 +72,7 @@ if (publication) {
       </div>
       <div class="flex flex-wrap gap-6 mb-8">
         {publication?.data?.authors?.map((author, idx) => (
-          <div class="flex items-center bg-white text-gray-900 rounded-xl shadow-lg px-6 py-4 min-w-[220px] max-w-lg border border-gray-300" key={author+idx}>
+          <div class="flex items-center bg-white text-gray-900 rounded-xl shadow-lg px-6 py-4 min-w-[220px] max-w-lg border border-gray-300" key={author+idx+100}>
             <span class="inline-block w-14 h-14 rounded-full bg-gray-200 flex items-center justify-center text-2xl font-bold text-royalOrchid border-2 border-royalOrchid mr-4">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118A7.5 7.5 0 0112 15.75a7.5 7.5 0 017.5 4.368" />
@@ -79,7 +80,7 @@ if (publication) {
             </span>
             <div>
               <div class="font-semibold text-lg text-gray-900">{author}</div>
-              <div class="text-xs text-gray-500">Researcher, YouthTechNet</div>
+              <div class="text-xs text-gray-500">Community Member, YouthTechNet</div>
             </div>
           </div>
         ))}
@@ -89,11 +90,23 @@ if (publication) {
             </span>
             <div>
               <div class="font-semibold text-lg text-gray-900">Lorem Ipsum</div>
-              <div class="text-xs text-gray-500">Researcher, YouthTechNet</div>
+              <div class="text-xs text-gray-500">Community Member, YouthTechNet</div>
             </div>
           </div>
         )}
       </div>
+      {publication?.data?.contributors?.length && (
+        <div class="mb-8">
+          <h2 class="text-lg font-semibold text-gray-700 mb-3">Contributors</h2>
+          <div class="flex flex-wrap gap-4">
+            {publication?.data?.contributors?.map((contributor, idx) => (
+              <div class="flex items-center bg-gray-50 rounded-lg px-4 py-2 text-sm text-gray-600" key={contributor+idx}>
+                {contributor}
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
       <div class="mb-8">
         <h2 class="text-lg font-semibold text-gray-700 mb-2">Tags</h2>
         <div class="flex flex-wrap gap-2">
