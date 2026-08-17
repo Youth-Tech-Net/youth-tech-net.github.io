@@ -8,6 +8,11 @@ const upcomingEvent = events
 		if (!e.date) return false;
 		const eventDate = new Date(e.date + (e.time ? ' ' + e.time : ''));
 		return e.type === 'upcoming' && eventDate > now;
+	})
+	.sort((a, b) => {
+		const aDate = new Date(a.date + (a.time ? ' ' + a.time : ''));
+		const bDate = new Date(b.date + (b.time ? ' ' + b.time : ''));
+		return aDate - bDate;
 	})[0];
 ---
 {upcomingEvent && <UpcomingEventBanner event={upcomingEvent} />}

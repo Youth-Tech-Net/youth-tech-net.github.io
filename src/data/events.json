@@ -1,12 +1,44 @@
 [
 
   {
+    "title": "AI and Data Centres",
+    "date": "2026-08-27",
+    "time": "6:00 PM",
+    "image": "/img/posters/AI-Data-centres-sydney.jpg",
+    "link": "https://campus.hellorubric.com/?eid=72683",
+    "type": "upcoming",
+    "imageCredit": {
+      "authorText": "Original artwork by Deborah Lupton",
+      "sourceLabel": "betterimagesofai.org",
+      "sourceUrl": "https://betterimagesofai.org",
+      "licenseLabel": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "adaptedBy": "Veve Fry"
+    }
+  },
+  {
+    "title": "AI and Data Centres",
+    "date": "2026-08-19",
+    "time": "6:00 PM",
+    "image": "/img/posters/AI-Data-centres-online.jpg",
+    "link": "https://campus.hellorubric.com/?eid=72684",
+    "type": "upcoming",
+    "imageCredit": {
+      "authorText": "Original artwork by Deborah Lupton",
+      "sourceLabel": "betterimagesofai.org",
+      "sourceUrl": "https://betterimagesofai.org",
+      "licenseLabel": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "adaptedBy": "Veve Fry"
+    }
+  },
+  {
     "title": "AI - Hype or Hope ? come & discuss!",
     "date": "2026-08-07",
     "time": "6:30 PM",
     "image": "/img/posters/hype-hope.png",
     "link": "https://l.messenger.com/l.php?u=https%3A%2F%2Fcampus.hellorubric.com%2F%3Feid%3D70656&h=AUBRU-RYbkHLjCIIV7B8GW9jPdCtr4jxQ28No_rAck_u2B1oKFViZVICKr1UvujQAN8PoestDE_P_fnqw3l1eUj86K0v23txJXynhFcDCL6_f2diAureLRgmTyWwqw",
-    "type": "upcoming"
+    "type": "past"
   },
   {
     "title": "Llama 1101: Run your own AI",
