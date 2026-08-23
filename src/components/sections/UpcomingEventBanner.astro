@@ -4,8 +4,16 @@ const { event } = Astro.props;
 ---
 <div class="w-full flex justify-center py-6 px-2">
   <div class="relative flex flex-col md:flex-row items-stretch bg-gradient-to-br from-[#ffd4a8] via-vanillaCustard to-[#fffdf2] rounded-lg shadow-2xl border border-[#e1a10b] max-w-4xl w-full overflow-hidden">
-    <div class="w-full md:w-auto flex items-center justify-center bg-white bg-opacity-30 p-3 md:p-4 border-b md:border-b-0 md:border-r border-[#e1a10b]">
+    <div class="w-full md:w-auto flex flex-col items-center justify-center bg-white bg-opacity-30 p-3 md:p-4 border-b md:border-b-0 md:border-r border-[#e1a10b]">
       <img src={event.image} alt={event.title} class="h-64 md:h-80 w-auto max-w-full object-contain rounded shadow-md" loading="lazy" />
+      {event.imageCredit && (
+        <p class="mt-1 text-[10px] leading-tight text-[#6b5a44] text-center max-w-full">
+          {event.imageCredit.authorText} /{' '}
+          <a href={event.imageCredit.sourceUrl} target="_blank" rel="noopener" class="underline hover:text-[#e1a10b]">{event.imageCredit.sourceLabel}</a> /{' '}
+          <a href={event.imageCredit.licenseUrl} target="_blank" rel="noopener" class="underline hover:text-[#e1a10b]">{event.imageCredit.licenseLabel}</a>.
+          Adapted for Youth Tech Net by {event.imageCredit.adaptedBy}
+        </p>
+      )}
     </div>
     <div class="flex-1 flex flex-col justify-center px-6 py-4">
       <div class="flex items-center gap-2 mb-2">
