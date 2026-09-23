@@ -19,4 +19,7 @@ draft: false
 
 ## Abstract
 
-Youth Tech Net calls for the UN Global Dialogue on AI Governance to address, as a matter of priority, the interests on youth, children and future generations. We draw attention to the asymmetrical impacts of AI on young people, and draw attention to three thematic areas we believe are crucial: social, economic, ethical, cultural, linguistic and technical implications of AI;protection and promotion of human rights; and open-source software, open data and open AI models.  
+In a joint submission with EcoMind, YTN and EcoMind make recommendations to the Senate on AI and data centres. Youth Tech Net recognises AI innovation represents an economic opportunity for Australia. However, AI infrastructure must not come at the cost of Australia's natural environment, climate goals and sustainable development goals. Therefore, our position is that hyperscale data centres in Australia represent a significant and unnecessary threat to environmental security and human rights. In this submission to the Senate, Youth Tech Net and EcoMind urge the government to:
+
+1. Ensure a mandatory requirement that all hyperscale data centres run using 100% renewable energy without carve-outs;
+2. That data centre providers undergo mandatory reporting and regular auditing of energy consumption and water usage.
