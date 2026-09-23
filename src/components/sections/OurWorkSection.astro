@@ -1,20 +1,20 @@
 ---
 import tagColors from "../../data/tagColors.json";
-const { publications } = Astro.props;
+const { items } = Astro.props;
 
 // Helper to extract abstract section from markdown body
 function extractAbstract(body) {
-  const match = body.match(/## Abstract\n+([\s\S]*?)(\n+## |$)/);
+  const match = body.replace(/\r\n/g, "\n").match(/## Abstract\n+([\s\S]*?)(\n+## |$)/);
   return match ? match[1].trim() : "";
 }
 
 // Only send the search fields needed by Fuse to the browser
-const publicationSearchData = publications.map((pub) => ({
-  slug: pub.slug,
-  title: pub.data.title ?? "",
-  tags: pub.data.tags ?? [],
-  authors: pub.data.authors ?? [],
-  draft: pub.data.draft ?? false,
+const searchData = items.map((item) => ({
+  slug: item.slug,
+  title: item.data.title ?? "",
+  tags: item.data.tags ?? [],
+  authors: item.data.authors ?? [],
+  draft: item.data.draft ?? false,
 }));
 ---
 
@@ -23,14 +23,14 @@ const publicationSearchData = publications.map((pub) => ({
     <h1
       class="text-3xl sm:text-4xl font-bold text-royalOrchid mb-8 text-center"
     >
-      Publications
+      Our Work
     </h1>
 
     <div class="relative mb-8">
       <input
         id="search-input"
         type="text"
-        placeholder="Search publications..."
+        placeholder="Search our work..."
         class="w-full px-4 py-2 border border-gray-300 rounded shadow focus:outline-none focus:ring-2 focus:ring-royalOrchid"
         autocomplete="off"
       />
@@ -43,12 +43,12 @@ const publicationSearchData = publications.map((pub) => ({
 
     <div class="space-y-12">
       {
-        publications.map((pub) => (
+        items.map((item) => (
           <div class="flex flex-col border-b border-vanillaCustard pb-8 last:border-b-0 last:pb-0 bg-white rounded-lg shadow-lg">
-            {pub.data.cover && (
+            {item.data.cover && (
               <img
-                src={pub.data.cover}
-                alt={pub.data.title + " cover"}
+                src={item.data.cover}
+                alt={item.data.title + " cover"}
                 class="w-full h-64 object-cover object-top rounded-t mb-4 shadow bg-gray-100"
                 loading="lazy"
               />
@@ -58,20 +58,20 @@ const publicationSearchData = publications.map((pub) => ({
               <div class="flex items-center justify-between mb-2 mt-2 border-b border-gray-100 pb-2">
                 <div class="flex items-center gap-2">
                   <a
-                    href={`/publications/${pub.slug}/`}
-                    title={pub.data.title}
+                    href={`/our-work/${item.slug}/`}
+                    title={item.data.title}
                     class="text-2xl font-semibold text-royalOrchid hover:underline focus:outline-none"
                   >
-                    {pub.data.title}
+                    {item.data.title}
                   </a>
-                  {(pub.data.draft === true || pub.data.draft === 'true') && (
+                  {(item.data.draft === true || item.data.draft === 'true') && (
                     <span class="ml-2 px-2 py-1 rounded bg-yellow-200 text-yellow-900 text-xs font-bold uppercase">Draft</span>
                   )}
                 </div>
 
-                {pub.data.pdf && (
+                {item.data.pdf && (
                   <a
-                    href={pub.data.pdf}
+                    href={item.data.pdf}
                     title="Download PDF"
                     download
                     class="ml-3 transition-transform duration-150 hover:scale-110 focus:outline-none"
@@ -88,11 +88,11 @@ const publicationSearchData = publications.map((pub) => ({
               </div>
 
               <div class="mb-2 text-sm text-gray-600">
-                By {pub.data.authors.join(", ")}
+                By {item.data.authors.join(", ")}
               </div>
 
               <div class="mb-2 flex flex-wrap gap-2">
-                {pub.data.tags.map((tag) => {
+                {item.data.tags.map((tag) => {
                   const colorClass = tagColors[tag] || tagColors["default"];
                   return (
                     <span class={colorClass + " px-2 py-1 rounded text-xs"}>
@@ -103,7 +103,7 @@ const publicationSearchData = publications.map((pub) => ({
               </div>
 
               <div class="mb-4 text-gray-700">
-                <strong>Abstract:</strong> {extractAbstract(pub.body)}
+                <strong>Abstract:</strong> {extractAbstract(item.body)}
               </div>
             </div>
           </div>
@@ -112,9 +112,9 @@ const publicationSearchData = publications.map((pub) => ({
     </div>
   </div>
 
-  <script type="module" define:vars={{ publicationSearchData }}>
-    import { initPublicationSearch } from "../src/scripts/publications-search.js";
+  <script type="module" define:vars={{ searchData }}>
+    import { initOurWorkSearch } from "../src/scripts/our-work-search.js";
 
-    initPublicationSearch(publicationSearchData);
+    initOurWorkSearch(searchData);
   </script>
 </section>

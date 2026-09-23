@@ -5,36 +5,37 @@ import { getEntryBySlug, getCollection } from "astro:content";
 import Navbar from "../../components/Navbar.astro";
 
 export async function getStaticPaths() {
-  const publications = await getCollection("publications");
-  return publications.map(pub => ({ params: { slug: pub.slug } }));
+  const items = await getCollection("our-work");
+  return items.map(item => ({ params: { slug: item.slug } }));
 }
 
 const { slug } = Astro.params;
-const publication = await getEntryBySlug("publications", slug);
-let metaTitle = "Publication Not Found | YouthTechNet Publications";
-let metaDescription = "Sorry, this publication could not be found.";
+const item = await getEntryBySlug("our-work", slug);
+let metaTitle = "Not Found | YouthTechNet Our Work";
+let metaDescription = "Sorry, this item could not be found.";
 let metaImage = undefined;
 let sections = {};
-let otherPublications = [];
-if (publication) {
-  metaTitle = publication.data.title + " | YouthTechNet Publications";
+let otherItems = [];
+if (item) {
+  metaTitle = item.data.title + " | YouthTechNet Our Work";
+  const body = item.body.replace(/\r\n/g, "\n");
   // Extract first section content for meta description
-  const firstSectionMatch = publication.body.match(/##\s+\S+\n+([\s\S]*?)(\n+##\s+\S+|$)/);
-  metaDescription = firstSectionMatch?.[1]?.trim() || publication.data.title;
-  metaImage = publication.data.cover;
+  const firstSectionMatch = body.match(/##\s+\S+\n+([\s\S]*?)(\n+##\s+\S+|$)/);
+  metaDescription = firstSectionMatch?.[1]?.trim() || item.data.title;
+  metaImage = item.data.cover;
   // Dynamically extract all ## sections from body
   const sectionRegex = /##\s+(\S[\s\S]*?)\n+([\s\S]*?)(?=##\s+\S+|$)/g;
   let match;
-  while ((match = sectionRegex.exec(publication.body)) !== null) {
+  while ((match = sectionRegex.exec(body)) !== null) {
     const sectionTitle = match[1].trim();
     const sectionContent = match[2].trim();
     if (sectionTitle && sectionContent) {
       sections[sectionTitle] = sectionContent;
     }
   }
-  // Get other publications for sidebar
-  const allPubs = await getCollection("publications");
-  otherPublications = allPubs.filter(pub => pub.slug !== slug);
+  // Get other items for sidebar
+  const allItems = await getCollection("our-work");
+  otherItems = allItems.filter(other => other.slug !== slug);
 }
 
 ---
@@ -46,32 +47,32 @@ if (publication) {
     title={metaTitle}
     image={metaImage}
     meta-description={metaDescription}
-    meta-author={publication?.data?.authors?.join(', ') || 'Unknown Author'}
-    meta-date={publication?.data?.date}
-    meta-tags={publication?.data?.tags}
+    meta-author={item?.data?.authors?.join(', ') || 'Unknown Author'}
+    meta-date={item?.data?.date}
+    meta-tags={item?.data?.tags}
   />
   <Navbar />
   <main class="w-full flex justify-center bg-gradient-to-br from-gray-50 to-white min-h-screen py-8 px-1">
     <div class="w-full max-w-[96rem] bg-white rounded-2xl shadow-2xl p-0 md:p-8 flex flex-col md:flex-row gap-0">
       <div class="flex-1 flex flex-col md:pr-14">
-      {publication?.data?.cover && (
+      {item?.data?.cover && (
         <div class="w-full flex items-center justify-center bg-gray-100 rounded-t-2xl overflow-hidden mb-8">
-          <img src={publication.data.cover} alt={publication.data.title + ' cover'} class="object-cover w-full h-72 md:h-96" loading="lazy" />
+          <img src={item.data.cover} alt={item.data.title + ' cover'} class="object-cover w-full h-72 md:h-96" loading="lazy" />
         </div>
       )}
       <div class="flex flex-col w-full mb-8">
-        <h1 class="text-4xl font-extrabold text-royalOrchid leading-tight mb-2 text-left">{publication?.data?.title || 'Untitled Publication'}</h1>
+        <h1 class="text-4xl font-extrabold text-royalOrchid leading-tight mb-2 text-left">{item?.data?.title || 'Untitled'}</h1>
         <div class="flex flex-wrap items-center gap-4 mb-4">
           <span class="text-gray-500 text-sm">
-            <strong>Date Published:</strong> {publication?.data?.date || 'N/A'}
+            <strong>Date Published:</strong> {item?.data?.date || 'N/A'}
           </span>
-          {publication?.data?.pdf && (
-            <a href={publication.data.pdf} target="_blank" rel="noopener" class="text-royalOrchid underline font-semibold text-sm">Download PDF</a>
+          {item?.data?.pdf && (
+            <a href={item.data.pdf} target="_blank" rel="noopener" class="text-royalOrchid underline font-semibold text-sm">Download PDF</a>
           )}
         </div>
       </div>
       <div class="flex flex-wrap gap-6 mb-8">
-        {publication?.data?.authors?.map((author, idx) => (
+        {item?.data?.authors?.map((author, idx) => (
           <div class="flex items-center bg-white text-gray-900 rounded-xl shadow-lg px-6 py-4 min-w-[220px] max-w-lg border border-gray-300" key={author+idx+100}>
             <span class="inline-block w-14 h-14 rounded-full bg-gray-200 flex items-center justify-center text-2xl font-bold text-royalOrchid border-2 border-royalOrchid mr-4">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
@@ -84,7 +85,7 @@ if (publication) {
             </div>
           </div>
         ))}
-        {!publication?.data?.authors?.length && (
+        {!item?.data?.authors?.length && (
           <div class="flex items-center bg-white text-gray-900 rounded-xl shadow-lg px-6 py-4 min-w-[220px] max-w-lg border border-gray-300">
             <span class="inline-block w-14 h-14 rounded-full bg-gray-200 flex items-center justify-center text-2xl font-bold text-royalOrchid border-2 border-royalOrchid mr-4">?
             </span>
@@ -95,11 +96,11 @@ if (publication) {
           </div>
         )}
       </div>
-      {publication?.data?.contributors?.length && (
+      {item?.data?.contributors?.length && (
         <div class="mb-8">
           <h2 class="text-lg font-semibold text-gray-700 mb-3">Contributors</h2>
           <div class="flex flex-wrap gap-4">
-            {publication?.data?.contributors?.map((contributor, idx) => (
+            {item?.data?.contributors?.map((contributor, idx) => (
               <div class="flex items-center bg-gray-50 rounded-lg px-4 py-2 text-sm text-gray-600" key={contributor+idx}>
                 {contributor}
               </div>
@@ -110,7 +111,7 @@ if (publication) {
       <div class="mb-8">
         <h2 class="text-lg font-semibold text-gray-700 mb-2">Tags</h2>
         <div class="flex flex-wrap gap-2">
-          {publication?.data?.tags?.map(tag => (
+          {item?.data?.tags?.map(tag => (
             <span class="bg-vividTangerine text-white px-3 py-1 rounded-full text-xs font-medium">{tag}</span>
           ))}
         </div>
@@ -127,16 +128,16 @@ if (publication) {
         ))}
       </article>
       </div>
-      {/* Sidebar for other blogs on the right */}
+      {/* Sidebar for other items on the right */}
       <aside class="hidden md:block w-full max-w-xs md:ml-8">
         <div class="sticky top-24">
-          <h2 class="text-lg font-bold text-royalOrchid mb-4">Other Publications</h2>
+          <h2 class="text-lg font-bold text-royalOrchid mb-4">Other Work</h2>
           <ul class="space-y-3">
-            {otherPublications.map(pub => (
-              <li key={pub.slug}>
-                <a href={`/publications/${pub.slug}/`} class="block bg-gray-50 hover:bg-vividTangerine/10 border border-gray-300 rounded-lg px-4 py-3 transition-colors shadow-sm">
-                  <div class="font-semibold text-gray-900 truncate">{pub.data.title}</div>
-                  <div class="text-xs text-gray-500 truncate">By {pub.data.authors?.join(", ") || "Unknown"}</div>
+            {otherItems.map(other => (
+              <li key={other.slug}>
+                <a href={`/our-work/${other.slug}/`} class="block bg-gray-50 hover:bg-vividTangerine/10 border border-gray-300 rounded-lg px-4 py-3 transition-colors shadow-sm">
+                  <div class="font-semibold text-gray-900 truncate">{other.data.title}</div>
+                  <div class="text-xs text-gray-500 truncate">By {other.data.authors?.join(", ") || "Unknown"}</div>
                 </a>
               </li>
             ))}

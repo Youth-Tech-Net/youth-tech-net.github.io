@@ -1,0 +1,15 @@
+---
+import Base from "../layouts/Base.astro";
+import { getCollection } from "astro:content";
+import OurWorkSection from "../components/sections/OurWorkSection.astro";
+import Navbar from "../components/Navbar.astro";
+
+const items = (await getCollection("our-work")).sort(
+  (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+);
+---
+
+<Base>
+  <Navbar />
+  <OurWorkSection items={items} />
+</Base>

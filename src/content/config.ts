@@ -23,8 +23,8 @@ const teamCollection = defineCollection({
   })
 })
 
-// Publications collection schema
-const publicationsCollection = defineCollection({
+// Our Work collection schema
+const ourWorkCollection = defineCollection({
   type: 'content',
   schema: z.object({
     title: z.string(),
@@ -42,5 +42,5 @@ const publicationsCollection = defineCollection({
 export const collections = {
   'sections': sectionsCollection,
   'team': teamCollection,
-  'publications': publicationsCollection
+  'our-work': ourWorkCollection
 }

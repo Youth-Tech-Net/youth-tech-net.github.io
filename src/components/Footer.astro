@@ -7,9 +7,7 @@ const site = Astro.site
 const abtLink = isHome
   ? '#about'
   : `${site}#about`
-const ftLink = isHome
-  ? '#features'
-  : `${site}#features`
+const ourWorkLink = '/our-work'
 ---
 <footer class="w-full flex flex-col sm:flex-row sm:justify-center text-lg tracking-wide px-4 sm:px-0 py-16">
   <div class="text-center pr-0 sm:pr-8 py-4">
@@ -28,7 +26,7 @@ const ftLink = isHome
         <a class="text-gray-800 hover:text-royalOrchid no-underline" href={abtLink}>About</a>
       </li>
       <li>
-        <a class="text-gray-800 hover:text-royalOrchid no-underline" href={ftLink}>Our Work</a>
+        <a class="text-gray-800 hover:text-royalOrchid no-underline" href={ourWorkLink}>Our Work</a>
       </li>
     </ul>
   </div>
