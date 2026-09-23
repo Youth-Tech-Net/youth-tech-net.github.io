@@ -22,20 +22,20 @@ function highlight(text, query) {
     return safeText.replace(regex, '<mark class="bg-yellow-200">$1</mark>');
 }
 
-export function initPublicationSearch(publications = []) {
+export function initOurWorkSearch(items = []) {
     const input = document.getElementById('search-input');
     const dropdown = document.getElementById('search-dropdown');
 
     if (!input || !dropdown) return;
 
-    const normalizedPublications = publications.map((pub) => ({
-        slug: pub.slug ?? '',
-        title: pub.title ?? '',
-        tags: Array.isArray(pub.tags) ? pub.tags : [],
-        authors: Array.isArray(pub.authors) ? pub.authors : [],
+    const normalizedItems = items.map((item) => ({
+        slug: item.slug ?? '',
+        title: item.title ?? '',
+        tags: Array.isArray(item.tags) ? item.tags : [],
+        authors: Array.isArray(item.authors) ? item.authors : [],
     }));
 
-    const fuse = new Fuse(normalizedPublications, {
+    const fuse = new Fuse(normalizedItems, {
         keys: [
             { name: 'title', weight: 0.5 },
             { name: 'tags', weight: 0.25 },
@@ -108,7 +108,7 @@ export function initPublicationSearch(publications = []) {
 
         const slug = li.dataset.slug;
         if (slug) {
-            window.location.href = `/publications/${slug}/`;
+            window.location.href = `/our-work/${slug}/`;
         }
     });
 

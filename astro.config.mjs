@@ -29,6 +29,11 @@ export default defineConfig({
   site: build.siteURL,
   base: build.baseURL,
   outDir: build.outDir,
+  // To keep the existing links already shared functional
+  redirects: {
+    '/publications': '/our-work',
+    '/publications/[slug]': '/our-work/[slug]'
+  },
   integrations: [
     tailwind({
       applyBaseStyles: false
